@@ -7,16 +7,13 @@ using TaskList.Entities;
 
 namespace TaskList.Services
 {
-    public class TaskService : ITaskService
+    public class TaskService : BaseService, ITaskService
     {
-        private IRepository Repository { get; }
-
-        public TaskService(IRepository repository)
+        public TaskService(IRepository repository) : base(repository)
         {
-            Repository = repository;
         }
 
-        void ITaskService.CompleteTask(int id)
+        public void CompleteTask(int id)
         {
             using (var context = Repository.CreateContext())
             {
@@ -100,14 +97,14 @@ namespace TaskList.Services
                 var dbTasks = context.Set<DbTask>().ToList();
 
                 return dbTasks.ConvertAll(x => new Task
-                    {
-                        Id = x.Id,
-                        Description = x.Description,
-                        IsCompleted = x.IsCompleted,
-                        Name = x.Name,
-                        Priority = x.Priority,
-                        TimeToComplete = x.TimeToComplete,
-                    }).ToArray();
+                {
+                    Id = x.Id,
+                    Description = x.Description,
+                    IsCompleted = x.IsCompleted,
+                    Name = x.Name,
+                    Priority = x.Priority,
+                    TimeToComplete = x.TimeToComplete,
+                }).ToArray();
             }
         }
 

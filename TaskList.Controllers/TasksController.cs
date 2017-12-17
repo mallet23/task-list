@@ -8,7 +8,7 @@ using TaskList.ViewModels;
 
 namespace TaskList.Controllers
 {
-    public class TasksController : ApiController
+    public class TasksController : BaseApiController
     {
         private ITaskService TaskService { get; }
 

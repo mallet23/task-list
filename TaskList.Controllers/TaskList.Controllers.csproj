@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseApiController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TasksController.cs" />
+    <Compile Include="UserSettingsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskList.Abstractions\TaskList.Abstractions.csproj">

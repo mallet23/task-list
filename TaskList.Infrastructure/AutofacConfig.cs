@@ -29,7 +29,7 @@ namespace TaskList.Infrastructure
         internal static IContainer CreateContainer(Action<ContainerBuilder> additionalBuild)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterApiControllers(typeof(TasksController).Assembly);
+            builder.RegisterApiControllers(typeof(BaseApiController).Assembly);
             RegisterComponents(builder);
             additionalBuild?.Invoke(builder);
             return builder.Build();
@@ -37,7 +37,7 @@ namespace TaskList.Infrastructure
 
         private static void RegisterComponents(ContainerBuilder builder)
         {
-            var servicesAssembly = typeof(TaskService).Assembly;
+            var servicesAssembly = typeof(BaseService).Assembly;
             builder.RegisterAssemblyTypes(servicesAssembly)
                 .Where(x => x.Name.EndsWith("Service"))
                 .AsImplementedInterfaces()
