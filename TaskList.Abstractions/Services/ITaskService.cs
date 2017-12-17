@@ -8,7 +8,7 @@ namespace TaskList.Abstractions.Services
 
         Task GetTask(int id);
 
-        int CreateTask();
+        int CreateTask(Task task);
 
         void UpdateTask(Task task);
 

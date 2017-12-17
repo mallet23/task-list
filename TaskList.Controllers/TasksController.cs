@@ -1,24 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Description;
 using TaskList.Abstractions.Services;
+using TaskList.Entities;
 using TaskList.ViewModels;
 
 namespace TaskList.Controllers
 {
     public class TasksController : ApiController
     {
-        private readonly ITaskService _taskService;
+        private ITaskService TaskService { get; }
 
         public TasksController(ITaskService taskService)
         {
-            _taskService = taskService;
+            TaskService = taskService;
         }
 
         [HttpGet]
         public IEnumerable<TaskModel> GetTasks()
         {
-            return _taskService.GetTasks().Select(x=> new TaskModel
+            return TaskService.GetTasks().Select(x=> new TaskModel
             {
                 Id = x.Id,
                 Description = x.Description,
@@ -30,9 +32,10 @@ namespace TaskList.Controllers
         }
 
         [HttpGet]
+        [ResponseType(typeof(TaskModel))]
         public IHttpActionResult GetTask(int id)
         {
-            var task = _taskService.GetTask(id);
+            var task = TaskService.GetTask(id);
             if (task == null)
             {
                 return NotFound();
@@ -49,6 +52,35 @@ namespace TaskList.Controllers
             };
 
             return Ok(taskModel);
+        }
+
+        [HttpPost]
+        [ResponseType(typeof(TaskModel))]
+        public IHttpActionResult Create([FromBody] TaskModel task)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            task.Id = TaskService.CreateTask(new Task
+            {
+                Description = task.Description,
+                Name = task.Name,
+                Priority = task.Priority,
+                TimeToComplete = task.TimeToComplete,
+            });
+
+            return Ok(task);
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult CompleteTask(int id)
+        {
+            TaskService.CompleteTask(id);
+
+            return Ok();
         }
     }
 }
