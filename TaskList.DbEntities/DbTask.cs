@@ -1,7 +1,13 @@
-﻿namespace TaskList.Repositories.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TaskList.DbEntities
 {
+    [Table("dbo.tbl_Task")]
     public class DbTask
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Name { get; set; }

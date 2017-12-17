@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList.Repositories", "Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList.Infrastructure", "TaskList.Infrastructure\TaskList.Infrastructure.csproj", "{1A4C9391-4123-403A-9FC8-B22A2DD98F76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList.DbEntities", "TaskList.DbEntities\TaskList.DbEntities.csproj", "{21E4E8E3-F15A-4ABB-85FA-DF3AFC9F3895}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{1A4C9391-4123-403A-9FC8-B22A2DD98F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A4C9391-4123-403A-9FC8-B22A2DD98F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A4C9391-4123-403A-9FC8-B22A2DD98F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E4E8E3-F15A-4ABB-85FA-DF3AFC9F3895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E4E8E3-F15A-4ABB-85FA-DF3AFC9F3895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E4E8E3-F15A-4ABB-85FA-DF3AFC9F3895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E4E8E3-F15A-4ABB-85FA-DF3AFC9F3895}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

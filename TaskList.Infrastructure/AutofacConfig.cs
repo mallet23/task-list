@@ -2,6 +2,7 @@
 using Autofac;
 using Autofac.Integration.WebApi;
 using TaskList.Controllers;
+using TaskList.Repositories;
 using TaskList.Services;
 
 namespace TaskList.Infrastructure
@@ -42,9 +43,9 @@ namespace TaskList.Infrastructure
                 .AsImplementedInterfaces()
                 .SingleInstance();
 
-            //builder.RegisterType<Repositories>()
-            //    .As<IRepository>()
-            //    .SingleInstance();
+            builder.RegisterType<Repository>()
+                .AsImplementedInterfaces()
+                .SingleInstance();
         }
     }
 }

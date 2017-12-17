@@ -13,5 +13,7 @@ namespace TaskList.Abstractions.Services
         void UpdateTask(Task task);
 
         void CompleteTask(int id);
+
+        void DeleteTask(int id);
     }
 }

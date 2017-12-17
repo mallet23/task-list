@@ -74,6 +74,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TaskList.Abstractions\TaskList.Abstractions.csproj">
+      <Project>{3231DCB2-4F9C-4F24-A65B-478B0ECCB42F}</Project>
+      <Name>TaskList.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TaskList.Controllers\TaskList.Controllers.csproj">
       <Project>{f906187e-d6b2-4316-b613-e817bf0093f2}</Project>
       <Name>TaskList.Controllers</Name>

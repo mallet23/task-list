@@ -9,8 +9,7 @@ namespace Task_List
         public static void Register()
         {
             AutofacConfig.Register();
-            GlobalConfiguration.Configuration.DependencyResolver =
-                new AutofacWebApiDependencyResolver(AutofacConfig.Container);
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(AutofacConfig.Container);
         }
 
         public static void DisposeContainer()

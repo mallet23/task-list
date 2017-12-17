@@ -1,43 +1,27 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using TaskList.Abstractions.Repositories;
 using TaskList.Abstractions.Services;
+using TaskList.DbEntities;
 using TaskList.Entities;
 
 namespace TaskList.Services
 {
     public class TaskService : ITaskService
     {
-        private readonly Task[] _tasksModel =
+        private IRepository Repository { get; set; }
+
+        public TaskService(IRepository repository)
         {
-            new Task
-            {
-                Id = 1,
-                Name = "Name 1",
-                Description = "Description 1",
-                Priority = "Priority 1",
-                TimeToComplete = "TimeToComplete 1",
-                IsCompleted = true,
-            },
-            new Task
-            {
-                Id = 2,
-                Name = "Name 2",
-                Description = "Description 2",
-                Priority = "Priority 2",
-                TimeToComplete = "TimeToComplete 2",
-                IsCompleted = true,
-            },
-            new Task
-            {
-                Id = 3,
-                Name = "Name 3",
-                Description = "Description 3",
-                Priority = "Priority 3",
-                TimeToComplete = "TimeToComplete 3",
-                IsCompleted = true,
-            },
-        };
+            Repository = repository;
+        }
 
         void ITaskService.CompleteTask(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteTask(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -49,12 +33,44 @@ namespace TaskList.Services
 
         Task ITaskService.GetTask(int id)
         {
-            return _tasksModel.FirstOrDefault(p => p.Id == id);
+            using (var context = Repository.CreateContext())
+            {
+                var dbTasks = context.Set<DbTask>().FirstOrDefault(p => p.Id == id);
+
+                if (dbTasks == null)
+                {
+                    throw new ArgumentException(nameof(id));
+                }
+
+                return new Task
+                    {
+                        Id = dbTasks.Id,
+                        Description = dbTasks.Description,
+                        IsCompleted = dbTasks.IsCompleted,
+                        Name = dbTasks.Name,
+                        Priority = dbTasks.Priority,
+                        TimeToComplete = dbTasks.TimeToComplete,
+                    };
+            }
         }
 
         Task[] ITaskService.GetTasks()
         {
-            return _tasksModel;
+            using (var context = Repository.CreateContext())
+            {
+                var dbTasks = context.Set<DbTask>().ToList();
+
+                return dbTasks.ConvertAll(x => new Task
+                    {
+                        Id = x.Id,
+                        Description = x.Description,
+                        IsCompleted = x.IsCompleted,
+                        Name = x.Name,
+                        Priority = x.Priority,
+                        TimeToComplete = x.TimeToComplete,
+                    })
+                    .ToArray();
+            }
         }
 
         void ITaskService.UpdateTask(Task task)
