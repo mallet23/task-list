@@ -1,3 +1,85 @@
-.task-list-row{
+.title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+
+/*    table    */
+
+.tab-content table {
+  border-collapse: collapse;
+  margin-bottom: 40px;
+
+  width: 100%;
+}
+
+.tab-content th {
+  /*border-bottom: 2px solid #272c40;*/
+  background-color: #dc294a;
+  color: #FFF;
+  font-size: 12px;
+
+
+  text-align: left;
+  padding: 15px 10px;
+  text-transform: uppercase;
+}
+
+.tab-content td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-content tr:nth-child(even) td {
+  background-color: #ffe8ec;
+}
+
+.tab-content tr:last-child td {
+  border-bottom: 1px solid #dc294a;
+}
+
+.tab-content .item-action {
+  color: #dc294a;
+}
+
+.tab-content .item-action:hover {
+  color: #272c40;
+  cursor: pointer;
+}
+
+/*   toolbar    */
+
+.toolbar {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.toolbar .filter {
+  display: flex;
+}
+.toolbar .filter div,
+.toolbar .controls div {
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  min-width: 60px;
+
+  transition: all ease 0.3s;
+}
+
+.toolbar .filter div:hover,
+.toolbar .controls div:hover {
+  background-color: #dc294a;
+  color: #fff;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+.toolbar .filter div:last-child,
+.toolbar .controls div:last-child {
+  margin-right: 0
+}
+
+.toolbar .filter div.active {
+  background-color: #dc294a;
+  color: #fff;
 }

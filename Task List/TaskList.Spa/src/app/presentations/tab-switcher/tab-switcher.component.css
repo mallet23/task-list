@@ -1,0 +1,26 @@
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  bottom: 0;
+  width: 250px;
+}
+
+.tab {
+  background-color: #272c40;
+  color: #8b91a0;
+
+  padding: 10px 15px;
+  margin-bottom: 2px;
+}
+
+.tab:hover {
+  background-color: #40465d;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #40465d;
+  color: #FFF;
+}

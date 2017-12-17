@@ -1,23 +1,50 @@
-Task List
-<div *ngIf="tasks">
-  <div [ngSwitch]="filterStatus">
-    <div *ngSwitchCase="true">Completed</div>
-    <div *ngSwitchCase="false">Active</div>
-    <div *ngSwitchDefault>All</div>
+<div class="tab-content tab-content-2">
+  <div class="title">
+    Task list
   </div>
 
-  <div *ngFor="let task of tasks" (click)="selectTask(task)" class="task-list-row">
-    <div>{{task.name}}</div>
-    <div>{{task.priority}}</div>
-    <div>{{task.createdDate}}</div>
-    <div>{{task.dueDate}}</div>
-    <div>
-      <button *ngIf="!task.isCompleted">Complete</button>
-      <button *ngIf="task.isCompleted">Delete</button>
+  <div class="toolbar">
+    <div class="filter">
+      <div class="filter-all" [ngClass]="{'active': filterStatus === null}">All</div>
+      <div class="filter-active" [ngClass]="{'active': filterStatus === false}">Active</div>
+      <div class="filter-completed" [ngClass]="{'active': filterStatus === true}">Completed</div>
+    </div>
+    <div class="controls">
+      <div class="control-refresh">Refresh</div>
     </div>
   </div>
+
+
+  <div class="data-table">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Added date</th>
+        <th>Time to complete</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let task of tasks" (click)="selectTask(task)">
+        <td>{{task.name}}</td>
+        <td>{{task.priority}}</td>
+        <td>{{task.createdDate}}</td>
+        <td>{{task.dueDate}}</td>
+        <td>
+          <div class="item-action" *ngIf="!task.isCompleted">Complete</div>
+          <div class="item-action" *ngIf="task.isCompleted">Delete</div>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <app-task-details [task]="currentTask">
+
+  </app-task-details>
+
+
 </div>
-
-<app-task-details [task]="currentTask">
-
-</app-task-details>

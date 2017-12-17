@@ -1,27 +1,26 @@
-<div *ngIf="task">
-  Task Details:
-  <div class="task-details-row">
-    <div> {{'Name:'}} </div>
-    <div> {{task.name}} </div>
+<div class="data-description" *ngIf="task">
+  <div class="description-item">
+    <div class="item-title"> {{'Name:'}} </div>
+    <div class="item-info">{{task.name}} </div>
   </div>
 
-  <div class="task-details-row">
-    <div>{{'Description:'}}   </div>
-    <div> {{task.description}} </div>
+  <div class="description-item">
+    <div class="item-title">{{'Description:'}}   </div>
+    <div class="item-info"> {{task.description}} </div>
   </div>
 
-  <div class="task-details-row">
-    <div>{{'Status:'}}   </div>
-    <div> {{!task.isCompleted ? 'Active' : 'Completed'}} </div>
+  <div class="description-item">
+    <div class="item-title">{{'Status:'}}   </div>
+    <div class="item-info">{{!task.isCompleted ? 'Active' : 'Completed'}} </div>
   </div>
 
-  <div class="task-details-row">
-    <div>{{'Priority:'}}   </div>
-    <div> {{task.priority}} </div>
+  <div class="description-item">
+    <div class="item-title">{{'Priority:'}}   </div>
+    <div class="item-info"> {{task.priority}} </div>
   </div>
 
-  <div class="task-details-row">
-    <div>{{'Added:'}}   </div>
-    <div> {{task.createdDate}} </div>
+  <div class="description-item">
+    <div class="item-title">{{'Added:'}}   </div>
+    <div class="item-info">{{task.createdDate}} </div>
   </div>
 </div>
