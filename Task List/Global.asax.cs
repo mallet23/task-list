@@ -12,6 +12,13 @@ namespace Task_List
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            ContainerConfig.Register();
+        }
+
+        protected void Application_End(object sender, EventArgs e)
+        {
+            ContainerConfig.DisposeContainer();
         }
     }
 }

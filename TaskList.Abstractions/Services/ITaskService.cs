@@ -1,6 +1,6 @@
 ﻿using TaskList.Entities;
 
-namespace TaskList.Abstractions
+namespace TaskList.Abstractions.Services
 {
     public interface ITaskService
     {

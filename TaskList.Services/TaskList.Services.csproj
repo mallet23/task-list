@@ -41,6 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskList.Abstractions\TaskList.Abstractions.csproj">
+      <Project>{3231dcb2-4f9c-4f24-a65b-478b0eccb42f}</Project>
+      <Name>TaskList.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskList.Entities\TaskList.Entities.csproj">
+      <Project>{13a70af8-bc01-404b-8e1d-94a0e134b936}</Project>
+      <Name>TaskList.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

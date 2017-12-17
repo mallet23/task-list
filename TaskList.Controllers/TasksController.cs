@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using TaskList.Abstractions;
+using TaskList.Abstractions.Services;
 using TaskList.ViewModels;
 
 namespace TaskList.Controllers
@@ -15,52 +15,40 @@ namespace TaskList.Controllers
             _taskService = taskService;
         }
 
-        private readonly TaskModel[] _tasksModel =
-        {
-            new TaskModel
-            {
-                Id = 1,
-                Name = "Name 1",
-                Description = "Description 1",
-                Priority = "Priority 1",
-                TimeToComplete = "TimeToComplete 1",
-                IsCompleted = true,
-            },
-            new TaskModel
-            {
-                Id = 2,
-                Name = "Name 2",
-                Description = "Description 2",
-                Priority = "Priority 2",
-                TimeToComplete = "TimeToComplete 2",
-                IsCompleted = true,
-            },
-            new TaskModel
-            {
-                Id = 3,
-                Name = "Name 3",
-                Description = "Description 3",
-                Priority = "Priority 3",
-                TimeToComplete = "TimeToComplete 3",
-                IsCompleted = true,
-            },
-        };
-
         [HttpGet]
         public IEnumerable<TaskModel> GetTasks()
         {
-            return _tasksModel;
+            return _taskService.GetTasks().Select(x=> new TaskModel
+            {
+                Id = x.Id,
+                Description = x.Description,
+                IsCompleted = x.IsCompleted,
+                Name = x.Name,
+                Priority = x.Priority,
+                TimeToComplete = x.TimeToComplete,
+            });
         }
 
         [HttpGet]
         public IHttpActionResult GetTask(int id)
         {
-            var task = _tasksModel.FirstOrDefault(p => p.Id == id);
+            var task = _taskService.GetTask(id);
             if (task == null)
             {
                 return NotFound();
             }
-            return Ok(task);
+
+            var taskModel = new TaskModel
+            {
+                Id = task.Id,
+                Description = task.Description,
+                IsCompleted = task.IsCompleted,
+                Name = task.Name,
+                Priority = task.Priority,
+                TimeToComplete = task.TimeToComplete,
+            };
+
+            return Ok(taskModel);
         }
     }
 }
