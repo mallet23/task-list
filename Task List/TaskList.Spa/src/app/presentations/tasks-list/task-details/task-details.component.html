@@ -1,0 +1,27 @@
+<div *ngIf="task">
+  Task Details:
+  <div class="task-details-row">
+    <div> {{'Name:'}} </div>
+    <div> {{task.name}} </div>
+  </div>
+
+  <div class="task-details-row">
+    <div>{{'Description:'}}   </div>
+    <div> {{task.description}} </div>
+  </div>
+
+  <div class="task-details-row">
+    <div>{{'Status:'}}   </div>
+    <div> {{!task.isCompleted ? 'Active' : 'Completed'}} </div>
+  </div>
+
+  <div class="task-details-row">
+    <div>{{'Priority:'}}   </div>
+    <div> {{task.priority}} </div>
+  </div>
+
+  <div class="task-details-row">
+    <div>{{'Added:'}}   </div>
+    <div> {{task.createdDate}} </div>
+  </div>
+</div>

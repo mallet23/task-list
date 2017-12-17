@@ -1,0 +1,12 @@
+<button [ngClass]="{'selected': currentTabState === tabStates.AddTask}"
+  (click)="changeTab(tabStates.AddTask)">
+  {{tabStates.AddTask}}
+</button>
+<button [ngClass]="{'selected': currentTabState === tabStates.TasksList}"
+  (click)="changeTab(tabStates.TasksList)">
+  {{tabStates.TasksList}}
+</button>
+<button [ngClass]="{'selected': currentTabState === tabStates.UserSettings}"
+  (click)="changeTab(tabStates.UserSettings)">
+  {{tabStates.UserSettings}}
+</button>
