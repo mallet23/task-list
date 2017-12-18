@@ -69,6 +69,6 @@ export class TasksListComponent implements OnInit {
   }
 
   onRefresh() {
-    this.refreshTable.emit(id);
+    this.refreshTable.emit();
   }
 }

@@ -7,12 +7,14 @@ import {ITask} from '../../models/task.model';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
+  task: ITask;
 
   constructor() {
   }
 
   ngOnInit() {
     this.task = {
+      id: 0,
       name: '',
       description: '',
       priority: 1,
@@ -25,7 +27,6 @@ export class AddTaskComponent implements OnInit {
   @Output()
   addedTask: EventEmitter<ITask> = new EventEmitter<ITask>();
 
-  task: ITask;
 
   onAddTask(): void {
     this.task.createdDate = new Date();
