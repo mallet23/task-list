@@ -30,6 +30,7 @@
       <tbody>
       <tr *ngFor="let task of tasks; let i = index"
           (click)="selectTask(task.id)"
+          [ngClass]= "{'selected' : task.id === _currentTaskId}"
           [style.background]="i % 2 === 1 ? userSettings?.altRowColor : null">
         <td>{{task.name}}</td>
         <td>{{task.priority}}</td>
