@@ -14,6 +14,8 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   @Input()
-  task: ITask;
+  dateTimeFormat: string;
 
+  @Input()
+  task: ITask;
 }

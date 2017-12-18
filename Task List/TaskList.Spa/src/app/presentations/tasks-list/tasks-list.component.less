@@ -23,61 +23,64 @@
 
   tr {
     td {
+      cursor: pointer;
       padding: 15px 10px;
       border-bottom: 1px solid #ccc;
-    }
-
-    &:nth-child(even) td {
-      background-color: #ffe8ec;
     }
 
     &:last-child td {
       border-bottom: 1px solid #dc294a;
     }
+    td:last-child {
+      width: 10%;
+      cursor: default;
+    }
   }
 
-  .item-action {
-    color: #dc294a;
+
+.item-action {
+  color: #dc294a;
+
+  &:hover {
+    color: #272c40;
+    cursor: pointer;
+  }
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  .filter {
+    display: flex;
+
+    div.active {
+      background-color: #dc294a;
+      color: #fff;
+    }
+  }
+
+  .filter div,
+  .controls div {
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    min-width: 60px;
+
+    transition: all ease 0.3s;
 
     &:hover {
-      color: #272c40;
+      background-color: #dc294a;
+      color: #fff;
+      transition: all ease 0.3s;
       cursor: pointer;
     }
-  }
 
-  .toolbar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-
-    .filter {
-      display: flex;
-
-      div.active {
-        background-color: #dc294a;
-        color: #fff;
-      }
-    }
-
-    .filter div,
-    .controls div {
-      margin-right: 10px;
-      border: 1px solid #ccc;
-      padding: 10px 15px;
-      min-width: 60px;
-
-      transition: all ease 0.3s;
-
-      &:hover {
-        background-color: #dc294a;
-        color: #fff;
-        transition: all ease 0.3s;
-        cursor: pointer;
-      }
-
-      &:last-child {
-        margin-right: 0
-      }
+    &:last-child {
+      margin-right: 0
     }
   }
+}
+
 }

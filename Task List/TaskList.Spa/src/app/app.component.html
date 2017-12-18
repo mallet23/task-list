@@ -1,14 +1,23 @@
-
-  <app-tab-switcher
-    [currentTabState]="currentTabState"
-    (tabPressed)="changeTab($event)">
-  </app-tab-switcher>
+<app-tab-switcher [currentTabState]="currentTabState"
+                  (tabPressed)="changeTab($event)">
+</app-tab-switcher>
 
 
-  <div class="tabs-container" [ngSwitch]="currentTabState">
-    <app-add-task *ngSwitchCase="tabStates.AddTask"></app-add-task>
-    <app-user-settings *ngSwitchCase="tabStates.UserSettings"></app-user-settings>
-    <app-tasks-list *ngSwitchDefault></app-tasks-list>
-  </div>
+<div class="tabs-container" [ngSwitch]="currentTabState">
+  <app-add-task (addedTask)="addTask($event)"
+                *ngSwitchCase="tabStates.AddTask">
+  </app-add-task>
+  <app-user-settings [userSettings]="userSettings"
+                     (saveSettings)="saveSettings($event)"
+                     *ngSwitchCase="tabStates.UserSettings">
+  </app-user-settings>
+  <app-tasks-list [tasks]="tasks"
+                  [userSettings]="userSettings"
+                  (removeTask)="removeTask($event)"
+                  (completeTask)="completeTask($event)"
+                  (refreshTable)="refreshTable()"
+                  *ngSwitchDefault>
+  </app-tasks-list>
+</div>
 
 

@@ -1,13 +1,13 @@
 <button class="button"
         title="Select Color"
-        [ngClass]="selectedColor"
+        [style.background]="selectedColor"
         (click)="togglePanel()"></button>
 
 <div class="color-panel"
      [ngClass]="{'opened' : isOpened}">
   <div *ngFor="let color of colors"
        class="color-item"
-       [ngClass]="color"
+       [style.background]="color"
        (click)="changeColor(color)">
   </div>
 </div>

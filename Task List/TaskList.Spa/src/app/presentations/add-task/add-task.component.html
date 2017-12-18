@@ -4,21 +4,21 @@
   </div>
   <div class="form">
     <div class="field">
-      <label for="">Name</label>
-      <input type="text">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="task.name" placeholder="name">
     </div>
     <div class="field">
-      <label for="">Description</label>
-      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <label>Description</label>
+      <textarea type="text" [(ngModel)]="task.description" placeholder="description" cols="30" rows="10"></textarea>
     </div>
     <div class="field">
-      <label for="">Priority</label>
-      <input type="text">
+      <label >Priority</label>
+      <input type="number" [(ngModel)]="task.priority">
     </div>
     <div class="field">
-      <label for="">Time to complete</label>
-      <input type="text">
+      <label>Hour to complete</label>
+      <input type="number">
     </div>
-    <button class="save-button">Submit</button>
+    <button class="save-button" (click)="onAddTask()">Submit</button>
   </div>
 </div>

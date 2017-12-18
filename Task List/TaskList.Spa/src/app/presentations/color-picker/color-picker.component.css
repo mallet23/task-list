@@ -1,7 +1,6 @@
 .button {
-  width: 20px;
-  height: 20px;
-  background-color: white;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
 .color-panel {
@@ -23,52 +22,4 @@
 }
 .color-panel .color-item:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-.white {
-  background-color: #ffffff;
-}
-.redA-200 {
-  background-color: #ff5252;
-}
-.redA-400 {
-  background-color: #ff1744;
-}
-.redA-700 {
-  background-color: #d50000;
-}
-.pinkA-100 {
-  background-color: #ff80ab;
-}
-.pinkA-200 {
-  background-color: #ff4081;
-}
-.pinkA-400 {
-  background-color: #f50057;
-}
-.pinkA-700 {
-  background-color: #c51162;
-}
-.purpleA-100 {
-  background-color: #ea80fc;
-}
-.purpleA-200 {
-  background-color: #e040fb;
-}
-.purpleA-400 {
-  background-color: #d500f9;
-}
-.purpleA-700 {
-  background-color: #aa00ff;
-}
-.indigoA-100 {
-  background-color: #b388ff;
-}
-.indigoA-200 {
-  background-color: #7c4dff;
-}
-.indigoA-400 {
-  background-color: #651fff;
-}
-.indigoA-700 {
-  background-color: #6200ea;
 }

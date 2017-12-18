@@ -16,14 +16,16 @@
   text-transform: uppercase;
 }
 .tab-content tr td {
+  cursor: pointer;
   padding: 15px 10px;
   border-bottom: 1px solid #ccc;
 }
-.tab-content tr:nth-child(even) td {
-  background-color: #ffe8ec;
-}
 .tab-content tr:last-child td {
   border-bottom: 1px solid #dc294a;
+}
+.tab-content tr td:last-child {
+  width: 10%;
+  cursor: default;
 }
 .tab-content .item-action {
   color: #dc294a;

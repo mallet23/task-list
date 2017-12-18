@@ -7,10 +7,11 @@
     <div class="filter">
       <div class="filter-all" [ngClass]="{'active': filterStatus === null}" (click)="useFilter(null)">All</div>
       <div class="filter-active" [ngClass]="{'active': filterStatus === false}" (click)="useFilter(false)">Active</div>
-      <div class="filter-completed" [ngClass]="{'active': filterStatus === true}" (click)="useFilter(true)">Completed</div>
+      <div class="filter-completed" [ngClass]="{'active': filterStatus === true}" (click)="useFilter(true)">Completed
+      </div>
     </div>
     <div class="controls">
-      <div class="control-refresh">Refresh</div>
+      <div class="control-refresh" (click)="onRefresh()">{{ 'Refresh' }}</div>
     </div>
   </div>
 
@@ -19,23 +20,28 @@
     <table>
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Priority</th>
-        <th>Added date</th>
-        <th>Time to complete</th>
-        <th>Actions</th>
+        <th>{{'Name'}}</th>
+        <th>{{'Priority'}}</th>
+        <th>{{'Added date'}}</th>
+        <th>{{'Time to complete'}}</th>
+        <th>{{'Actions'}}</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let task of tasks"
-          (click)="selectTask(task)">
+      <tr *ngFor="let task of tasks; let i = index"
+          (click)="selectTask(task.id)"
+          [style.background]="i % 2 === 1 ? userSettings?.altRowColor : null">
         <td>{{task.name}}</td>
         <td>{{task.priority}}</td>
-        <td>{{task.createdDate}}</td>
-        <td>{{task.dueDate}}</td>
+        <td>{{(task.createdDate | date: userSettings?.dateTimeFormat)}}</td>
+        <td></td>
         <td>
-          <div class="item-action" *ngIf="!task.isCompleted">Complete</div>
-          <div class="item-action" *ngIf="task.isCompleted">Delete</div>
+          <div class="item-action" *ngIf="!task.isCompleted" (click)="$event.stopPropagation(); onCompleteTask(task.id)">
+            {{ 'Complete' }}
+          </div>
+          <div class="item-action" *ngIf="task.isCompleted" (click)="$event.stopPropagation(); onRemoveTask(task.id)">
+            {{ 'Delete' }}
+          </div>
         </td>
       </tr>
 
@@ -43,7 +49,7 @@
     </table>
   </div>
 
-  <app-task-details [task]="currentTask">
+  <app-task-details [dateTimeFormat]="userSettings?.dateTimeFormat" [task]="currentTask">
 
   </app-task-details>
 

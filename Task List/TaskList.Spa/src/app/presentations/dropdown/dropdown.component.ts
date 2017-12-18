@@ -20,7 +20,7 @@ export class DropdownComponent implements OnInit {
   items: string[];
 
   @Input()
-  value: 'Select value';
+  value: string;
 
   isOpened = false;
 

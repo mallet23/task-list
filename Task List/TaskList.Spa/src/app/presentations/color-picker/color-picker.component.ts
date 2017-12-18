@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-color-picker',
@@ -14,30 +14,31 @@ export class ColorPickerComponent implements OnInit {
   }
 
   colors: string[] = [
-    'white',
-    'redA-200',
-    'redA-400',
-    'redA-700',
+    '#ffffff',
+    '#ff5252',
+    '#ff1744',
+    '#d50000',
 
-    'pinkA-100',
-    'pinkA-200',
-    'pinkA-400',
-    'pinkA-700',
+    '#ff80ab',
+    '#ff4081',
+    '#f50057',
+    '#c51162',
 
-    'purpleA-100',
-    'purpleA-200',
-    'purpleA-400',
-    'purpleA-700',
+    '#ea80fc',
+    '#e040fb',
+    '#d500f9',
+    '#aa00ff',
 
-    'indigoA-100',
-    'indigoA-200',
-    'indigoA-400',
-    'indigoA-700',
+    '#b388ff',
+    '#7c4dff',
+    '#651fff',
+    '#6200ea',
   ];
 
   @Output()
   colorSelected: EventEmitter<string> = new EventEmitter<string>();
 
+  @Input()
   selectedColor = this.colors[0];
 
   isOpened = false;

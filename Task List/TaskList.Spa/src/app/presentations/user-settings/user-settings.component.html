@@ -10,7 +10,10 @@
         <label>Date/Time Format</label>
       </td>
       <td>
-        <app-dropdown [items]="dateTimeFormats"></app-dropdown>
+        <app-dropdown [items]="dateTimeFormats"
+                      [value]="userSettings?.dateTimeFormat"
+        (valueSelected)="selectDateFormat($event)">
+        </app-dropdown>
       </td>
     </tr>
     <tr>
@@ -18,12 +21,14 @@
         <label>Table Alt Column Color</label>
       </td>
       <td>
-        <app-color-picker></app-color-picker>
+        <app-color-picker [selectedColor]="userSettings?.altRowColor"
+                          (colorSelected)="selectColor($event)">
+        </app-color-picker>
       </td>
     </tr>
     </tbody>
   </table>
-  <button class="save-button">Submit</button>
+  <button class="save-button" (click)="onSubmit()">Submit</button>
 
 </div>
 

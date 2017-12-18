@@ -21,6 +21,6 @@
 
   <div class="description-item">
     <div class="item-title">{{'Added:'}}   </div>
-    <div class="item-info">{{task.createdDate}} </div>
+    <div class="item-info">{{(task.createdDate | date : dateTimeFormat)}} </div>
   </div>
 </div>
