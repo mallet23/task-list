@@ -3,6 +3,8 @@ import {TabState} from './tab-state';
 import {ITask} from './models/task.model';
 import {IUserSettings} from './models/user-settings.model';
 import {TasksMock} from './shared/mock-tasks';
+import {DateTimeFormats} from './shared/constants/date-time-formats';
+import {Colors} from './shared/constants/colors';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,8 @@ import {TasksMock} from './shared/mock-tasks';
 })
 export class AppComponent {
   _userSettings: IUserSettings = {
-    altRowColor: '#ffffff',
-    dateTimeFormat: 'dd/MM/yyyy'
+    altRowColor: Colors[0],
+    dateTimeFormat: DateTimeFormats[0]
   };
 
   tasks: ITask[] = TasksMock;

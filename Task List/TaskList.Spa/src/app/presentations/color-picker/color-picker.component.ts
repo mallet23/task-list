@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Colors} from '../../shared/constants/colors';
 
 @Component({
   selector: 'app-color-picker',
@@ -6,34 +7,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./color-picker.component.css']
 })
 export class ColorPickerComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-  colors: string[] = [
-    '#ffffff',
-    '#ff5252',
-    '#ff1744',
-    '#d50000',
-
-    '#ff80ab',
-    '#ff4081',
-    '#f50057',
-    '#c51162',
-
-    '#ea80fc',
-    '#e040fb',
-    '#d500f9',
-    '#aa00ff',
-
-    '#b388ff',
-    '#7c4dff',
-    '#651fff',
-    '#6200ea',
-  ];
+  colors: string[] = Colors;
+  isOpened = false;
 
   @Output()
   colorSelected: EventEmitter<string> = new EventEmitter<string>();
@@ -41,7 +16,11 @@ export class ColorPickerComponent implements OnInit {
   @Input()
   selectedColor = this.colors[0];
 
-  isOpened = false;
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
 
   togglePanel(): void {
     this.isOpened = !this.isOpened;

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IUserSettings} from '../../models/user-settings.model';
+import {DateTimeFormats} from '../../shared/constants/date-time-formats';
 
 @Component({
   selector: 'app-user-settings',
@@ -11,7 +12,7 @@ export class UserSettingsComponent implements OnInit {
   constructor() {
   }
 
-  dateTimeFormats: string[] = ['dd/mm/yy', 'dd.mm.yy'];
+  dateTimeFormats: string[] = DateTimeFormats;
 
   ngOnInit() {
   }
