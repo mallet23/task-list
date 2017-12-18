@@ -1,0 +1,15 @@
+<button class="button"
+        (click)="togglePanel()">
+  <span>{{value}}
+  </span>
+</button>
+
+<div class="panel" [ngClass]="{'opened' : isOpened}">
+  <div *ngFor="let item of items"
+       class="item"
+       [ngClass]="{'selected': item === value}"
+       (click)="selectValue(item)">
+
+    <span>{{item}}</span>
+  </div>
+</div>

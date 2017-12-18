@@ -3,7 +3,28 @@
     User settings
   </div>
 
-  <app-color-picker></app-color-picker>
+  <table class="form">
+    <tbody>
+    <tr>
+      <td class="label">
+        <label>Date/Time Format</label>
+      </td>
+      <td>
+        <app-dropdown [items]="dateTimeFormats"></app-dropdown>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">
+        <label>Table Alt Column Color</label>
+      </td>
+      <td>
+        <app-color-picker></app-color-picker>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="save-button">Submit</button>
+
 </div>
 
 

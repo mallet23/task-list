@@ -9,6 +9,7 @@ import { UserSettingsComponent } from './presentations/user-settings/user-settin
 import { TabSwitcherComponent } from './presentations/tab-switcher/tab-switcher.component';
 import { TaskDetailsComponent } from './presentations/tasks-list/task-details/task-details.component';
 import { ColorPickerComponent } from './presentations/color-picker/color-picker.component';
+import { DropdownComponent } from './presentations/dropdown/dropdown.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ColorPickerComponent } from './presentations/color-picker/color-picker.
     TabSwitcherComponent,
     TaskDetailsComponent,
     ColorPickerComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule

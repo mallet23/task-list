@@ -2,3 +2,27 @@
   font-size: 32px;
   margin-bottom: 40px;
 }
+.form {
+  margin-bottom: 10px;
+}
+.form .label {
+  padding-right: 25px;
+}
+.save-button {
+  background-color: #272c40;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  width: 100px;
+}
+.save-button:active {
+  background-color: #272c40;
+  outline: none;
+}
+.save-button:focus {
+  outline: none;
+}
+.save-button:hover {
+  background-color: #40465d;
+  cursor: pointer;
+}

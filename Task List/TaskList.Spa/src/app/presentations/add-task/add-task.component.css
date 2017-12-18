@@ -19,21 +19,21 @@
   outline: none;
   border: 1px solid #5181b8;
 }
-.tab-content button {
+.tab-content .save-button {
   background-color: #272c40;
   border: none;
   color: #fff;
   padding: 10px 15px;
   width: 100px;
 }
-.tab-content button:active {
+.tab-content .save-button:active {
   background-color: #272c40;
   outline: none;
 }
-.tab-content button:focus {
+.tab-content .save-button:focus {
   outline: none;
 }
-.tab-content button:hover {
+.tab-content .save-button:hover {
   background-color: #40465d;
   cursor: pointer;
 }

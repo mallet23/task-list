@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  width: 200px;
+  position: relative;
+}
+
+.button {
+  width: 100%;
+  min-height: 30px;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.panel {
+  width: 190px;
+  position: fixed;
+  display: none;
+
+  &.opened {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item {
+    width: 100%;
+    background-color: #272c40;
+    color: #8b91a0;
+
+    text-align: center;
+
+    padding: 5px;
+    margin-bottom: 2px;
+
+    &.selected{
+      background-color: #a7a8ab;
+      color: #000000;
+    }
+
+    &:hover {
+      background-color: #40465d;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: #40465d;
+      color: #ffffff;
+    }
+  }
+}

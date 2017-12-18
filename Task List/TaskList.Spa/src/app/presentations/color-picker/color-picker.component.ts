@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-color-picker',
@@ -35,6 +35,9 @@ export class ColorPickerComponent implements OnInit {
     'indigoA-700',
   ];
 
+  @Output()
+  colorSelected: EventEmitter<string> = new EventEmitter<string>();
+
   selectedColor = this.colors[0];
 
   isOpened = false;
@@ -51,5 +54,7 @@ export class ColorPickerComponent implements OnInit {
     this.selectedColor = color;
 
     this.closePanel();
+
+    this.colorSelected.emit(color);
   }
 }

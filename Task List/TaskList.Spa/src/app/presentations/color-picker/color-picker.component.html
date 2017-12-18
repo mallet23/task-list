@@ -1,4 +1,7 @@
-<button class="button" [ngClass]="selectedColor" (click)="togglePanel()"></button>
+<button class="button"
+        title="Select Color"
+        [ngClass]="selectedColor"
+        (click)="togglePanel()"></button>
 
 <div class="color-panel"
      [ngClass]="{'opened' : isOpened}">
