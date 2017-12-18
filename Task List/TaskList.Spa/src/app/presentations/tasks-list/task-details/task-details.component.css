@@ -2,12 +2,10 @@
   border: 1px solid #ccc;
   padding: 20px;
 }
-
-.description-item {
+.data-description .description-item {
   display: flex;
   margin-bottom: 20px;
 }
-
 .data-description .item-title {
   font-weight: bold;
   margin-right: 10px;
