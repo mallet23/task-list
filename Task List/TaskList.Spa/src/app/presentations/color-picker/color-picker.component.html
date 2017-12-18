@@ -1,0 +1,10 @@
+<button class="button" [ngClass]="selectedColor" (click)="togglePanel()"></button>
+
+<div class="color-panel"
+     [ngClass]="{'opened' : isOpened}">
+  <div *ngFor="let color of colors"
+       class="color-item"
+       [ngClass]="color"
+       (click)="changeColor(color)">
+  </div>
+</div>

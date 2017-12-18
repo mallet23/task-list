@@ -8,6 +8,7 @@ import { TasksListComponent } from './presentations/tasks-list/tasks-list.compon
 import { UserSettingsComponent } from './presentations/user-settings/user-settings.component';
 import { TabSwitcherComponent } from './presentations/tab-switcher/tab-switcher.component';
 import { TaskDetailsComponent } from './presentations/tasks-list/task-details/task-details.component';
+import { ColorPickerComponent } from './presentations/color-picker/color-picker.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TaskDetailsComponent } from './presentations/tasks-list/task-details/ta
     TasksListComponent,
     UserSettingsComponent,
     TabSwitcherComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    ColorPickerComponent,
   ],
   imports: [
     BrowserModule
