@@ -41,6 +41,7 @@
 }
 .tab-content .toolbar .filter {
   display: flex;
+  text-align: center;
 }
 .tab-content .toolbar .filter div.active {
   background-color: #dc294a;
