@@ -14,7 +14,7 @@ namespace TaskList.DbEntities
 
         public string Description { get; set; }
 
-        public string Priority { get; set; }
+        public int Priority { get; set; }
 
         public string TimeToComplete { get; set; }
 
