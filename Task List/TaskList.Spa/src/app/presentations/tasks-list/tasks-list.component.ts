@@ -14,7 +14,7 @@ export class TasksListComponent implements OnInit {
   ngOnInit() {
   }
 
-  tasks: ITask[] = [
+  _tasks: ITask[] = [
     {
       name: 'name 1',
       description: 'description 1',
@@ -33,11 +33,20 @@ export class TasksListComponent implements OnInit {
     }
   ];
 
+  get tasks(): ITask[]{
+    const isCompleted = this.filterStatus;
+    return this._tasks.filter(x => isCompleted === null || isCompleted === x.isCompleted);
+  }
+
   currentTask: ITask;
 
   filterStatus: boolean = null;
 
   selectTask(task: ITask): void {
     this.currentTask = task;
+  }
+
+  useFilter(filterStatus){
+    this.filterStatus = filterStatus;
   }
 }

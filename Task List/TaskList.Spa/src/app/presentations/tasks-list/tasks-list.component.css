@@ -15,14 +15,14 @@
   padding: 15px 10px;
   text-transform: uppercase;
 }
-.tab-content td {
+.tab-content tr td {
   padding: 15px 10px;
   border-bottom: 1px solid #ccc;
 }
-.tab-content td:nth-child(even) td {
+.tab-content tr:nth-child(even) td {
   background-color: #ffe8ec;
 }
-.tab-content td:last-child td {
+.tab-content tr:last-child td {
   border-bottom: 1px solid #dc294a;
 }
 .tab-content .item-action {
